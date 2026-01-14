@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+<h1>JS PRACTICE NOTES</h1>
+<div id = 'table'><input style="background-color: white; color: green;" id="num" type="number" placeholder="Enter number to print table" onkeydown="handleEnter(event)">
+<span id = 'result' style="background-color: black; color: aliceblue;"> </span>
+</div>
+</body>
+<script>
+
+function handleEnter(event){
+    if(event.key=='Enter'){
+        to_get_table(event.target.value);
+    }
+}
+
+function to_get_table(num){
+    let output = '';
+    let result_value = document.getElementById('result')
+    if(num==0 || num==''){
+        result_value.innerHTML='';
+        return;
+    }
+    for(let i=1;i<=10; i++){
+            output+=  ` <br> ${num}*${i}=${num*i} `;
+        }
+        result_value.innerHTML = output;
+        console.log(output,'\n')
+
+}
+
+
+</script>
+</html>
