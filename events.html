@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<style>
+ #time_box{
+    align-items: center;
+    width: 150px;
+    height: 30px;
+    background: #e99d2c;
+    margin-top: 300px;
+    margin-bottom: 300px;
+    margin-left: 600px;
+    margin-right: 600px;
+    color: #212121;
+    border-radius: 8px;
+ }
+ #time_to_update{
+    color: #212121;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+
+ }
+
+ .button{
+          padding: 2px 5px;
+          border-radius: 8px;
+          color: #212121;
+          text-decoration: none;
+          border: 2px solid #212121;
+ }
+ #demo{
+    border-radius: 10px;
+    border-color: #e99d2c;
+    padding: 10px 20px;
+    width: 100px;
+    height: 100px;
+    /* background-color: aqua; */
+ }
+</style>
+<body>
+    <div id="time_box">
+        <span id="time_to_update" style="align-items: center;"></span>
+        <span id="day_to_show"></span>
+    </div>
+
+    <span class="button" id="grey" style="background: grey; display: none;" ></span>
+    <span class="button" id="orange" style="background: orange; display: none;"></span>
+    <span class="button" id="blue" style="background: blue; display: none;"></span>
+    <span class="button" id="yellow" style="background: yellow; display: none;"></span>
+
+    <div id="demo"></div>
+    <!-- <span class="button" ></span> -->
+
+    
+</body>
+
+<script>
+    const time = document.getElementById('time_to_update');
+    setInterval(function(){
+     time.innerHTML = new Date().toLocaleTimeString()  
+    console.log(time);
+    },1000)
+
+    // const day = document.getElementById('day_to_show');
+    // day.innerHTML = new Date().toLocaleDateString();
+
+    const buttons = document.querySelectorAll('.button');
+    const body = document.querySelector('body');
+    buttons.forEach((button) => {
+        button.addEventListener('click', function(e){
+
+            if(e.target.id =='grey' ){
+                body.style.backgroundColor = e.target.id;
+            }
+            else if(e.target.id =='blue' ){
+                body.style.backgroundColor = e.target.id;
+            }    
+        
+           else if(e.target.id =='yellow' ){
+                body.style.backgroundColor = e.target.id;
+            }
+
+          else  if(e.target.id =='orange' ){
+                body.style.backgroundColor = e.target.id;
+            }
+
+            else{
+                if(e.target.id !='grey'||e.target.id !='yellow'||e.target.id !='blue'||e.target.id !='orange')
+                body.style.backgroundColor = '#212121'; 
+            }
+
+        })
+        
+    });
+
+    // const demo = document.querySelector('#demo');
+    // demo.addEventListener('mouseover',function(e){
+    //     demo.style.backgroundColor = 'black';
+    // })
+
+    // demo.addEventListener('mouseout',function(e){
+    //     demo.style.backgroundColor = 'white';
+    // })
+
+</script>
+
+</html>
